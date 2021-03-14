@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="com.kiyotaka.jetpackdemo.model.SettingViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragment.main.AboutFragment">
+
+
+        <TextView
+            android:id="@+id/tv_setting_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:drawableStart="@drawable/common_ic_back"
+            android:drawablePadding="10dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/txt_big_size"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_setting_welcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:text="设置"
+            android:textColor="@color/colorBlue"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <LinearLayout
+            android:id="@+id/layout_setting_app"
+            style="@style/CenterEditStyle"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/center_list2"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txt_setting_welcome"
+            app:layout_constraintVertical_bias="0">
+
+            <ImageView
+                android:id="@+id/imageView_person3"
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                android:layout_marginLeft="23dp"
+                android:layout_marginTop="13dp"
+                android:background="@drawable/ic_md_bookmark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="14dp"
+                android:text="忘记密码"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/imageView_Arrow3"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="233dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/ic_md_keyboard_arrow_right" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_setting_res"
+            style="@style/CenterEditStyle"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/center_list2"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_setting_app"
+            app:layout_constraintVertical_bias="0">
+
+            <ImageView
+                android:id="@+id/imageView_person4"
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                android:layout_marginLeft="23dp"
+                android:layout_marginTop="13dp"
+                android:background="@drawable/ic_md_bookmark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="14dp"
+                android:text="用户反馈"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/imageView_Arrow4"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="233dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/ic_md_keyboard_arrow_right" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

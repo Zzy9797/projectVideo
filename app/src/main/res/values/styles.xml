@@ -1,0 +1,149 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorBlue</item>
+        <item name="colorPrimaryDark">@color/colorBlue</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppThemeWithActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="ZeroZero">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="ZeroZero.CenterHorizontal">
+        <item name="layout_constraintLeft_toLeftOf">parent</item>
+        <item name="layout_constraintRight_toRightOf">parent</item>
+    </style>
+
+    <style name="RegisterEditStyle" parent="ZeroZero.CenterHorizontal">
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="layout_constraintHeight_default">percent</item>
+        <item name="layout_constraintHeight_percent">0.08</item>
+        <item name="layout_constraintWidth_default">percent</item>
+        <item name="layout_constraintWidth_percent">0.72</item>
+        <!--<item name="android:background">@drawable/common_et_bg_grey</item>-->
+    </style>
+    <style name="LoginStyle" parent="ZeroZero.CenterHorizontal">
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="layout_constraintHeight_default">percent</item>
+        <item name="layout_constraintHeight_percent">0.06</item>
+        <item name="layout_constraintWidth_default">percent</item>
+        <item name="layout_constraintWidth_percent">0.72</item>
+        <!--<item name="android:background">@drawable/common_et_bg_grey</item>-->
+    </style>
+    <style name="LoginStyle2" parent="ZeroZero.CenterHorizontal">
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="layout_constraintHeight_default">percent</item>
+        <item name="layout_constraintHeight_percent">0.048</item>
+        <item name="layout_constraintWidth_default">percent</item>
+        <item name="layout_constraintWidth_percent">0.72</item>
+        <!--<item name="android:background">@drawable/common_et_bg_grey</item>-->
+    </style>
+    <style name="HomeStyle" parent="ZeroZero.CenterHorizontal">
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="layout_constraintHeight_default">percent</item>
+        <item name="layout_constraintHeight_percent">0.048</item>
+        <item name="layout_constraintWidth_default">percent</item>
+        <item name="layout_constraintWidth_percent">0.72</item>
+        <!--<item name="android:background">@drawable/common_et_bg_grey</item>-->
+    </style>
+    <style name="CenterEditStyle" parent="ZeroZero.CenterHorizontal">
+
+        <!--<item name="android:background">@drawable/common_et_bg_grey</item>-->
+    </style>
+
+    <style name="CommonEditStyle" parent="ZeroZero.CenterHorizontal">
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="layout_constraintHeight_default">percent</item>
+        <item name="layout_constraintHeight_percent">0.065</item>
+        <item name="layout_constraintWidth_default">percent</item>
+        <item name="layout_constraintWidth_percent">0.72</item>
+        <!--<item name="android:background">@drawable/common_et_bg_grey</item>-->
+    </style>
+
+    <style name="DataEditStyle" parent="ZeroZero.CenterHorizontal">
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="layout_constraintHeight_default">percent</item>
+        <item name="layout_constraintHeight_percent">0.03</item>
+        <item name="layout_constraintWidth_default">percent</item>
+        <item name="layout_constraintWidth_percent">0.85</item>
+        <!--<item name="android:background">@drawable/common_et_bg_grey</item>-->
+    </style>
+    <style name="DataEditStyle2" parent="ZeroZero.CenterHorizontal">
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="layout_constraintHeight_default">percent</item>
+        <item name="layout_constraintHeight_percent">0.04</item>
+        <item name="layout_constraintWidth_default">percent</item>
+        <item name="layout_constraintWidth_percent">0.78</item>
+        <!--<item name="android:background">@drawable/common_et_bg_grey</item>-->
+    </style>
+    <style name="DataEditStyle3" parent="ZeroZero.CenterHorizontal">
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="layout_constraintHeight_default">percent</item>
+        <item name="layout_constraintHeight_percent">0.082</item>
+        <item name="layout_constraintWidth_default">percent</item>
+        <item name="layout_constraintWidth_percent">0.85</item>
+        <!--<item name="android:background">@drawable/common_et_bg_grey</item>-->
+    </style>
+    <style name="introductionEditStyle" parent="ZeroZero.CenterHorizontal">
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="layout_constraintHeight_default">percent</item>
+        <item name="layout_constraintHeight_percent">0.1</item>
+        <item name="layout_constraintWidth_default">percent</item>
+        <item name="layout_constraintWidth_percent">0.85</item>
+        <!--<item name="android:background">@drawable/common_et_bg_grey</item>-->
+    </style>
+
+    <style name="CommonButtonStyle" parent="ZeroZero.CenterHorizontal">
+        <item name="layout_constraintHeight_default">percent</item>
+        <item name="layout_constraintHeight_percent">0.1</item>
+        <item name="layout_constraintWidth_default">percent</item>
+        <item name="layout_constraintWidth_percent">0.85</item>
+        <item name="android:background">@drawable/common_btn_bg_blue</item>
+        <item name="android:textSize">@dimen/txt_big_size</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginEnd">20dp</item>
+    </style>
+
+    <style name="DataButtonStyle" parent="ZeroZero.CenterHorizontal">
+        <item name="layout_constraintHeight_default">percent</item>
+        <item name="layout_constraintHeight_percent">0.055</item>
+        <item name="layout_constraintWidth_default">percent</item>
+        <item name="layout_constraintWidth_percent">0.85</item>
+        <item name="android:background">@drawable/common_btn_bg_blue</item>
+        <item name="android:textSize">@dimen/txt_big_size</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginEnd">20dp</item>
+    </style>
+    <style name="Button_List_Style" parent="@style/Widget.AppCompat.Button.Borderless">
+    </style>
+
+</resources>

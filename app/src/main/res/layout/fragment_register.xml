@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="registerModel"
+            type="com.kiyotaka.jetpackdemo.model.RegisterViewModel" />
+
+        <variable
+            name="activity"
+            type="androidx.fragment.app.FragmentActivity"/>
+
+        <import type="android.view.View"/>
+    </data>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragment.login.RegisterFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/tv_register_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:drawableStart="@drawable/common_ic_back"
+                android:drawablePadding="10dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+
+                android:textColor="@color/colorBlue"
+                android:textSize="@dimen/txt_big_size"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                style="@style/LoginStyle"
+                android:layout_marginTop="35dp"
+                android:orientation="horizontal"
+
+                app:layout_constraintTop_toBottomOf="@+id/tv_register_cancel"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    app:srcCompat="@mipmap/logo2"
+
+                    />
+                <TextView
+                    android:id="@+id/txt_login_zixun"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:text="远程心理咨询"
+                    android:textColor="@color/colorBlue"
+                    android:textSize="24sp"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txt_register_welcome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="160dp"
+                android:gravity="center"
+                android:text="注  册"
+                android:textColor="@color/black"
+                android:textSize="27sp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/et_register_account_lo"
+                style="@style/RegisterEditStyle"
+                android:layout_marginTop="40dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/et_register_smscode_lo"
+                app:layout_constraintTop_toBottomOf="@id/txt_register_welcome"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints">
+
+                <EditText
+                    android:id="@+id/et_register_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edit_bg"
+                    android:drawableStart="@drawable/ic_phone_24dp"
+                    android:drawablePadding="10dp"
+                    android:hint="请输入手机号"
+                    android:onTextChanged="@{(text, start, before, count)->registerModel.onAccountChanged(text)}"
+                    android:inputType="number"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/et_register_smscode_lo"
+                style="@style/RegisterEditStyle"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/et_register_pwd_lo"
+                app:layout_constraintTop_toBottomOf="@id/et_register_account_lo"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints">
+
+                <EditText
+                    android:id="@+id/et_register_smscode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:background="@drawable/edit_bg"
+                    android:drawableStart="@drawable/ic_sms_24dp"
+                    android:drawablePadding="10dp"
+                    android:onTextChanged="@{(text, start, before, count)->registerModel.onSmsCodeChanged(text)}"
+                    android:hint="请输入验证码"
+                    android:inputType="number"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/btn_register_sms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+
+                    android:background="@drawable/common_btn_bg_blue"
+                    android:text="验证码"
+                    android:onClick="@{()->registerModel.onGetSmsCode()}"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/et_register_pwd_lo"
+                style="@style/RegisterEditStyle"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/et_register_pwd_again_lo"
+                app:layout_constraintTop_toBottomOf="@+id/et_register_smscode_lo"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints">
+
+                <EditText
+                    android:id="@+id/et_register_pwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edit_bg"
+                    android:drawableStart="@drawable/ic_lock_24dp"
+                    android:drawablePadding="10dp"
+                    android:hint="请输入密码"
+                    android:onTextChanged="@{(text, start, before, count)->registerModel.onPasswordChanged(text)}"
+                    android:inputType="textPassword"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/et_register_pwd_again_lo"
+                style="@style/RegisterEditStyle"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/btn_register_submit"
+                app:layout_constraintTop_toBottomOf="@+id/et_register_pwd_lo"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints">
+
+                <EditText
+                    android:id="@+id/et_register_pwd_again"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edit_bg"
+                    android:drawableStart="@drawable/ic_lock_24dp"
+                    android:drawablePadding="10dp"
+                    android:hint="请确认密码"
+                    android:onTextChanged="@{(text, start, before, count)->registerModel.onPasswordChangedAgain(text)}"
+                    android:inputType="textPassword"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btn_register_submit"
+                style="@style/CommonButtonStyle"
+                android:layout_width="223dp"
+                android:layout_height="47dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/common_btn_bg_blue"
+                android:drawablePadding="10dp"
+                android:onClick="@{()->registerModel.register()}"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="注  册"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/et_register_pwd_again_lo"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="41dp" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

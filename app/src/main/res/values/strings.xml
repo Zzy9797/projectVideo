@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">心理咨询app</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="personal_center">个人中心</string>
+    <string name="home">工作台</string>
+    <string name="search_call_hint">输入用户名搜索已注册用户</string>
+</resources>

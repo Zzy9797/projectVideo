@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="loginModel"
+            type="com.kiyotaka.jetpackdemo.model.LoginViewModel" />
+        
+        <variable
+            name="activity"
+            type="androidx.fragment.app.FragmentActivity"/>
+        
+        <import type="android.view.View"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragment.login.LoginFragment">
+        <TextView
+            android:id="@+id/test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+
+            android:drawablePadding="10dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/txt_big_size"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            style="@style/LoginStyle2"
+            android:layout_marginTop="37dp"
+            android:orientation="horizontal"
+
+            app:layout_constraintTop_toBottomOf="@+id/test"
+
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                app:srcCompat="@mipmap/logo2"
+
+                />
+            <TextView
+                android:id="@+id/txt_login_zixun"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="6"
+                android:text="远程心理咨询"
+                android:textColor="@color/colorBlue"
+                android:textSize="24sp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
+
+
+
+
+        <TextView
+            android:id="@+id/txt_login_welcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp"
+            android:gravity="center"
+            android:text="登  录"
+            android:textColor="@color/black"
+            android:textSize="27sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <EditText
+            android:id="@+id/et_login_account"
+            style="@style/CommonEditStyle"
+            android:drawableStart="@drawable/common_ic_account"
+            android:hint="请输入用户名"
+            android:textSize="16dp"
+            android:onTextChanged="@{(text, start, before, count)->loginModel.onAccountChanged(text)}"
+            android:inputType="number"
+            app:layout_constraintBottom_toTopOf="@id/et_login_pwd"
+            app:layout_constraintTop_toBottomOf="@id/txt_login_welcome"
+            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:background="@drawable/edit_bg"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/et_login_pwd"
+            style="@style/CommonEditStyle"
+            android:layout_marginTop="27dp"
+            android:drawableStart="@drawable/common_ic_pwd"
+            android:hint="请输入密码"
+            android:textSize="16dp"
+            android:onTextChanged="@{(text, start, before, count)->loginModel.onPasswordChanged(text)}"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toBottomOf="@id/cb_login_save"
+            app:layout_constraintTop_toBottomOf="@+id/et_login_account"
+            android:background="@drawable/edit_bg"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/cb_login_save"
+            android:checked="@{loginModel.isSave}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/btn_login_submit"
+            app:layout_constraintTop_toBottomOf="@+id/et_login_pwd"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:text="记住密码"
+            android:layout_marginTop="40dp"/>
+
+        <Button
+            android:id="@+id/btn_login_submit"
+            style="@style/CommonButtonStyle"
+            android:layout_width="223dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="15dp"
+            android:onClick="@{()->loginModel.login()}"
+            android:text="登  录"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cb_login_save"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="88dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/btn_login_submit">
+
+            <TextView
+                android:id="@+id/txt_login_forget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="忘记密码"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/btn_login_submit">
+            <TextView
+                android:id="@+id/txt_code"
+                android:layout_width="440dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="还没有账号？"
+                android:textColor="@color/grey"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/txt_login_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="马上注册"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp" />
+        </LinearLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

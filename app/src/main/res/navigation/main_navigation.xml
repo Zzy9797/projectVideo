@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.kiyotaka.jetpackdemo.ui.fragment.main.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_recordFragment"
+            app:destination="@id/recordFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right"/>
+        <action
+            android:id="@+id/action_navigation_home_to_countFragment"
+            app:destination="@id/countFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right"/>
+        <action
+            android:id="@+id/action_navigation_home_to_completeDataFragment"
+            app:destination="@id/completeDataFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_person"
+        android:name="com.kiyotaka.jetpackdemo.ui.fragment.main.CenterFragment"
+        android:label="@string/personal_center"
+        tools:layout="@layout/fragment_center" >
+        <action
+            android:id="@+id/action_navigation_person_to_completeDataFragment"
+            app:destination="@id/completeDataFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+        <action
+            android:id="@+id/action_navigation_person_to_mediaFragment"
+            app:destination="@id/mediaFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right"/>
+        <action
+            android:id="@+id/action_navigation_person_to_checkFragment"
+            app:destination="@id/checkFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right"/>
+        <action
+            android:id="@+id/action_navigation_person_to_settingFragment"
+            app:destination="@id/settingFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right"/>
+        <action
+            android:id="@+id/action_navigation_person_to_settingFragment2"
+            app:destination="@id/settingFragment2"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/completeDataFragment"
+        android:name="com.kiyotaka.jetpackdemo.ui.fragment.main.DataFragment"
+        android:label="CompleteDataFragment" >
+        <action
+            android:id="@+id/action_completeDataFragment_to_secretFragment"
+            app:destination="@id/secretFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/changeKeyFragment"
+        android:name="com.kiyotaka.jetpackdemo.ui.fragment.main.ChangeKeyFragment"
+        android:label="fragment_change_key"
+        tools:layout="@layout/fragment_change_key" />
+    <fragment
+        android:id="@+id/recordFragment"
+        android:name="com.kiyotaka.jetpackdemo.ui.fragment.main.RecordFragment"
+        android:label="fragment_record"
+        tools:layout="@layout/fragment_record" >
+        <action
+            android:id="@+id/action_recordFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/verifyFragment"
+        android:name="com.kiyotaka.jetpackdemo.ui.fragment.main.VerifyFragment"
+        android:label="fragment_verify"
+        tools:layout="@layout/fragment_verify" />
+    <fragment
+        android:id="@+id/countFragment"
+        android:name="com.kiyotaka.jetpackdemo.ui.fragment.main.CountFragment"
+        android:label="fragment_count"
+        tools:layout="@layout/fragment_count" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.kiyotaka.jetpackdemo.ui.fragment.main.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
+    <fragment
+        android:id="@+id/secretFragment"
+        android:name="com.kiyotaka.jetpackdemo.ui.fragment.main.SecretFragment"
+        android:label="fragment_secret"
+        tools:layout="@layout/fragment_secret"/>
+    <fragment
+        android:id="@+id/mediaFragment"
+        android:name="com.kiyotaka.jetpackdemo.ui.fragment.main.MediaFragment"
+        android:label="fragment_media"
+        tools:layout="@layout/fragment_media"/>
+    <fragment
+        android:id="@+id/checkFragment"
+        android:name="com.kiyotaka.jetpackdemo.ui.fragment.main.CheckFragment"
+        android:label="CheckFragment" >
+        <action
+            android:id="@+id/action_checkFragment_to_verifyFragment"
+            app:destination="@id/verifyFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/appFragment"
+        android:name="com.kiyotaka.jetpackdemo.ui.fragment.main.AppFragment"
+        android:label="AppFragment" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.kiyotaka.jetpackdemo.ui.fragment.main.AboutFragment"
+        android:label="setting_fragment"
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_settingFragment_to_appFragment"
+            app:destination="@id/appFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right"/>
+        <action
+            android:id="@+id/action_settingFragment_to_secretFragment"
+            app:destination="@id/secretFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment2"
+        android:name="com.kiyotaka.jetpackdemo.ui.fragment.main.SettingFragment"
+        android:label="SettingFragment" >
+        <action
+            android:id="@+id/action_settingFragment2_to_changeKeyFragment"
+            app:destination="@id/changeKeyFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right"/>
+        <action
+            android:id="@+id/action_settingFragment2_to_suggestionFragment"
+            app:destination="@id/suggestionFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/suggestionFragment"
+        android:name="com.kiyotaka.jetpackdemo.ui.fragment.main.SuggestionFragment"
+        android:label="suggestion_fragment"
+        tools:layout="@layout/suggestion_fragment" />
+
+</navigation>

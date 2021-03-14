@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.kiyotaka.jetpackdemo.model.DataViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
+        tools:context=".ui.fragment.main.DataFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/tv_compData_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:drawableStart="@drawable/common_ic_back"
+                android:drawablePadding="10dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/txt_big_size"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_compData_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="28dp"
+                android:onClick="@{()->model.edit()}"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="@{model.rightTitle}"
+                android:textColor="#0053B0"
+                android:textSize="@dimen/txt_big_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_compData_welcome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:gravity="center"
+                android:text="@{model.title}"
+                android:textColor="@color/colorBlue"
+                android:textSize="20sp"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <LinearLayout
+                android:id="@+id/et_compData_name_lo"
+                style="@style/DataEditStyle2"
+                android:layout_marginLeft="34dp"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/et_compData_gender_lo"
+                app:layout_constraintTop_toBottomOf="@id/txt_compData_welcome"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="姓 名: "
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_compData_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/edit_bg"
+                    android:hint="请输入您的姓名"
+                    android:inputType="text"
+                    android:onTextChanged="@{(text, start, before, count)->model.onNameChanged(text)}"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/et_compData_gender_lo"
+                style="@style/DataEditStyle2"
+                android:layout_marginLeft="34dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/et_compData_agency_lo"
+                app:layout_constraintTop_toBottomOf="@id/et_compData_name_lo"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="性 别: "
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <RadioGroup
+                    android:id="@+id/btn_data_radio"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:gravity="left"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioButton2"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/black"
+                        android:checked="true"
+                        android:text="男"
+                        android:textSize="17sp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton3"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/black"
+                        android:text="女"
+                        android:textSize="17sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/et_compData_agency_lo"
+                style="@style/DataEditStyle2"
+                android:layout_marginLeft="34dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/et_compData_city_lo"
+                app:layout_constraintTop_toBottomOf="@+id/et_compData_gender_lo"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="机 构: "
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_compData_agency"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/edit_bg"
+                    android:hint="请输入机构全称"
+                    android:inputType="text"
+                    android:onTextChanged="@{(text, start, before, count)->model.onAgencyChanged(text)}"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/et_compData_city_lo"
+                style="@style/DataEditStyle"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/et_compData_credential_lo"
+                app:layout_constraintTop_toBottomOf="@+id/et_compData_agency_lo"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="地        区: "
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tv_compData_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:gravity="center"
+                    android:hint="地  区"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textColor="@color/black"
+                    android:text="@{model.tvCity}"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/et_compData_credential_lo"
+                style="@style/DataEditStyle"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/et_compData_education_lo"
+                app:layout_constraintTop_toBottomOf="@+id/et_compData_city_lo"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="个人资质: "
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_compData_credential"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/edit_bg"
+                    android:hint=""
+                    android:inputType="text"
+                    android:onTextChanged="@{(text, start, before, count)->model.onCredentialChanged(text)}"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/et_compData_education_lo"
+                style="@style/introductionEditStyle"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/et_compData_training_lo"
+                app:layout_constraintTop_toBottomOf="@+id/et_compData_credential_lo"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="教育背景: "
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_compData_education"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/edit_bg"
+                    android:hint=""
+                    android:lines="6"
+                    android:inputType="text"
+                    android:onTextChanged="@{(text, start, before, count)->model.onEducationChanged(text)}"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/et_compData_training_lo"
+                style="@style/introductionEditStyle"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/et_compData_contact_lo"
+                app:layout_constraintTop_toBottomOf="@+id/et_compData_education_lo"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="培训经历: "
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_compData_training"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/edit_bg"
+                    android:hint=""
+                    android:lines="6"
+                    android:inputType="text"
+                    android:onTextChanged="@{(text, start, before, count)->model.onTraininfChanged(text)}"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/et_compData_contact_lo"
+                style="@style/DataEditStyle"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/et_compData_year_lo"
+                app:layout_constraintTop_toBottomOf="@+id/et_compData_training_lo"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="联系方式: "
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_compData_contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/edit_bg"
+                    android:hint="请输入手机/邮箱"
+                    android:inputType="text"
+                    android:onTextChanged="@{(text, start, before, count)->model.onContractChanged(text)}"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/et_compData_year_lo"
+                style="@style/DataEditStyle"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/et_compData_area_lo"
+                app:layout_constraintTop_toBottomOf="@+id/et_compData_contact_lo"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="从业年份: "
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tv_compData_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:gravity="center"
+                    android:hint="请选择从业年份"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textColor="@color/black"
+                    android:text="@{model.workYear}"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/et_compData_area_lo"
+                style="@style/DataEditStyle"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/et_compData_introduction_lo"
+                app:layout_constraintTop_toBottomOf="@+id/et_compData_year_lo"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="擅长领域: "
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tv_compData_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:gravity="center"
+                    android:hint="擅长领域"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textColor="@color/black"
+                    android:text="@{model.tvArea}"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/et_compData_introduction_lo"
+                style="@style/introductionEditStyle"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/et_compData_image_lo"
+                app:layout_constraintTop_toBottomOf="@+id/et_compData_area_lo"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="个人简介: "
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_compData_introduction"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/edit_bg"
+                    android:hint=""
+                    android:lines="6"
+                    android:inputType="text"
+                    android:onTextChanged="@{(text, start, before, count)->model.onIntroductionChanged(text)}"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/et_compData_image_lo"
+                style="@style/DataEditStyle"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/et_compData_certificates_lo"
+                app:layout_constraintTop_toBottomOf="@+id/et_compData_introduction_lo"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="上传个人头像: "
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:text="@{model.imageName}" />
+
+                <ImageView
+                    android:id="@+id/btn_compData_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/ic_wallpaper_black_24dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/et_compData_certificates_lo"
+                style="@style/DataEditStyle"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/ck_secret_lo"
+                app:layout_constraintTop_toBottomOf="@+id/et_compData_image_lo"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="资质证明材料: "
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:text="@{model.fileName}" />
+
+                <ImageView
+                    android:id="@+id/btn_compData_certificates"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/ic_upload_black_24dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ck_secret_lo"
+                style="@style/DataEditStyle"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/btn_compData_save"
+                app:layout_constraintTop_toBottomOf="@+id/et_compData_certificates_lo"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints">
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/ck_secret"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/black"
+                    android:checked="@{model.isCheckSeret}"
+                    android:textSize="17sp"/>
+
+                <ImageView
+                    android:id="@+id/iv_secret_array"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/ic_md_keyboard_arrow_right"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_compData_save"
+                style="@style/DataButtonStyle"
+                android:layout_width="223dp"
+                android:layout_height="47dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/common_btn_bg_blue"
+                android:drawablePadding="10dp"
+                android:onClick="@{()->model.onSave()}"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="保  存"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@id/btn_compData_submit"
+                app:layout_constraintTop_toBottomOf="@id/ck_secret_lo"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="43dp" />
+
+            <Button
+                android:id="@+id/btn_compData_submit"
+                style="@style/DataButtonStyle"
+                android:layout_width="223dp"
+                android:layout_height="47dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/common_btn_bg_blue"
+                android:drawablePadding="10dp"
+                android:onClick="@{()->model.onSubmit()}"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="提交资料"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_compData_save"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="MissingConstraints" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
